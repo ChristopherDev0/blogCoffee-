@@ -1,0 +1,310 @@
+:root{
+    --fuenteHeading: 'Open Sans', sans-serif;
+    --fuenteParrafos: 'PT Sans', sans-serif;
+    --primario: #784D3C;
+    --blanco: #ffffff;
+    --gris: #b8b5b5;
+    --negro: #000000;
+}
+html{
+    box-sizing: border-box;/* no afecta alas mediadas del contenido */
+    font-size: 62.5%;
+}
+*, *:before, *:after{
+    box-sizing: inherit;
+}
+body{
+    font-family: var(--fuenteParrafos);
+    font-size: 1.6rem;
+    line-height: 2;/* interlineado de txt */
+}
+
+/* GLOBALES */
+.contenedor{ /* aplica el tamaño minimo dependiendo del dispositivo */
+    max-width: 100rem; /* tamaño maximo del contenedor (pc) */
+    width: 90%; /* el contenido no habarca toda la pantalla (celular)*/
+    margin: 0 auto;/* centra el container */
+}
+a{
+    text-decoration: none;
+}
+h1, h2, h3, h4{
+    font-family: var(--fuenteHeading);
+    line-height: 1.5; /* interlineado */
+}
+h1{
+    font-size: 3.5rem;
+}
+h2{
+    font-size: 3rem;
+}
+h3{
+    font-size: 2.3rem;
+}
+h4{
+    font-size: 1.7rem;
+}
+img{
+    max-width: 100%;
+    box-shadow: 4px 6px 9px 0px rgba(0,0,0,0.49);
+}
+/* UTILIDADES */
+.no-margin{
+    margin: 0%;
+}
+.no-padding{
+    padding: 0%;
+}
+.centrar-texto{
+    text-align: center;
+}
+p span{
+    font-weight: bold;
+}
+/* HEADER */
+.header{
+    background-image: url(../css/img/banner.jpg);
+    height: 40rem;
+    background-size: cover;/* la img toma todo el espacio disponible y se adapta*/
+    background-repeat: no-repeat;
+    background-position: center center;/* la img se centra al hacerla responsive */
+    margin-bottom: 2rem;
+}
+.barra{
+    padding-top: 3rem;
+}
+.header__texto{
+    text-align: center;
+    color: var(--blanco);
+    margin-top: 3rem;
+}
+@media (max-width: 760px) {
+    .header__texto p{
+        display: none;
+    }
+    .header__texto h2{
+        font-size: 2.65rem;
+    }
+    .barra h1{
+        font-size: 3.7rem;
+    }
+}
+
+@media (min-width: 760px) {
+    .header__texto{
+        margin-top: 9rem;
+    }
+}
+@media (min-width: 760px) {
+    .barra{
+        display: flex;/* centra contenido horizontalmente */
+        justify-content: space-between; /* centra horizontalmete */
+        align-items: center;/* centra verticalmente */
+    }
+}
+.logo{
+    color: var(--blanco);
+}
+.logo__nombre{
+    font-weight: 400;
+}
+.logo__bold{
+    font-weight: 700;
+    color: #b68576;
+}
+@media (min-width: 760px) {
+    .navegacion{
+        display: flex;/* coloca los elementos horizontalmente */
+        gap: 2rem;
+    }
+}
+.navegacion__enlace{
+    display: block;/* los elementos se posciones uno debajo se otro (verticalmente)*/
+    color: var(--blanco);
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+/* MAIN */
+@media (min-width: 760px) {
+    .contenido-principal{
+        display: grid;
+        grid-template-columns: 2fr 1fr;/* dividimo el main en 3 (2principal - 1aside) */
+        column-gap: 4rem;
+    }
+}
+.entrada{
+    border-bottom: 1.9px solid var(--gris);/* borde abajo de la seccion (linea-separacion) */
+    margin-bottom: 2rem;
+}
+@media (min-width: 760px) {
+.entrada:last-of-type{/* a la ultima entrada se le anularan los bordes y margenes */
+    border: none;
+    margin-bottom: 0;
+}
+}
+
+.boton{
+    display: block;/* toma todo el espacio disponible de su seccion */
+    font-family: var(--fuenteHeading);
+    color: var(--blanco);
+    text-align: center;
+    padding: 1rem 3rem;/* (arriba-abajo / izquierda-derecha) */
+    font-size:1.5rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-bottom: 2rem;/* margen de bajo (para que se vea la lina-separadora) */
+    border: none;
+}
+@media (min-width: 760px) {
+    .boton{
+        display: inline-block;/* toma el tamaño que requiere(tamaño del propio contenido)*/
+    }
+}
+.boton:hover{
+    cursor: pointer;
+    background-color:  #1b1b1b;
+}
+.boton--primario{
+    background-color: #0c0c0c;
+}
+.boton--secundario{/* Bem: '--' activacion (hereda pero cambiara en algo) */
+    background-color: var(--primario);
+}
+.boton--secundario:hover{
+    background-color: #644133;
+}
+
+/* SIDEBAR */
+@media (max-width: 760px) {
+    .sidebar__title{
+        font-size: 2.7rem;
+        text-align: center;
+        margin-top: 4rem;
+    }
+}
+.cursos{
+    list-style:none; /* elimina la viñeta de la list */
+}
+.widget-curso{/* sepacion con una linea */
+    border-bottom: 1px solid var(--gris);
+}
+.widget-curso:last-of-type{/* elimina stilos an la ultima seccion se list */
+    border: none;
+    margin-bottom: 0%;
+}
+.widget-curso__label{
+    font-family: var(--fuenteHeading);
+    font-weight: 700;
+}
+.widget-curso__info{
+    font-weight: 400;
+}
+ .widget-curso__label,
+.widget-curso__info{
+    font-size: 1.5rem;
+}
+
+/* FOOTER */
+.footer{
+    background-color: #0c0c0c;
+    padding-bottom: 3rem;
+    margin-top: 5rem;
+}
+/* SOBRE NOSOTROS */
+@media (min-width: 760px) {
+    .sobre-nosotros{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        column-gap: 2rem;
+    }
+}
+
+/* CURSOS */
+.curso{
+    padding: 3rem 0;
+    border-bottom: 1px solid var(--gris);/* separacion con un border */
+}
+@media (min-width: 760px) {
+    .curso{
+        display: grid;
+        grid-template-columns: 1fr 2fr;/* el contenido abarcara dependiando las fr */
+        column-gap: 2rem;
+    }
+    
+}
+.curso:last-of-type{
+    border: none;
+}
+.curso__label{
+    font-family: var(--fuenteHeading);
+    font-weight: 700;
+}
+.curso__info{
+    font-weight: 400;
+}
+.curso__label,
+.curso__info{
+    font-size: 1.5rem;
+}
+
+/* CONTACTO */
+.contacto-bg{
+    background-image: url(../css/img/contacto.jpg);
+    height: 30rem; /* altura de la mg(tamaño) */
+    background-size: cover;/* la img toma todo el espacio disponible y se adapta*/
+    background-repeat: no-repeat;
+}
+.formulario{
+    background-color: var(--blanco);
+    margin: -6rem auto 0 auto;/* lleva el form hacia arriva(-5) */
+    width: 95%;/* ajustamos la anchura del form */
+    padding: 2rem;/* el contenido tendra un padin respentando la anchura */
+}
+.campo label{
+    font-weight: bold;
+}
+@media (max-width: 760px) {
+    .campo label{
+        display: block; /* hubica cada elemento verticalmente */
+    }
+    .campo input{
+        width: 100%; /* habarca toda la anchura disponible */
+    }
+    .campo textarea{
+        margin-bottom: 1rem;
+    }
+}
+.campo input{
+    border: 1px solid var(--gris);
+}
+.campo__field{
+    padding: 1rem;
+}
+.campo textarea{
+    width: 100%;
+    height: 10rem;
+    padding: 1rem;
+    border: 1px solid var(--gris);
+}
+@media (min-width: 760px) {
+    .formulario{
+        padding: 5rem;
+    }
+    .campo{
+        display: flex;/* usamos flex para utilizar sus propiedades */
+        margin-bottom: 2rem;/* magin para separar los campos */
+        gap: 2rem;
+    }
+    .campo__label{
+        flex: 0 0 9rem;/* damos un tamaño fijo a los albel */
+        text-align: right; /* hubica a la derecha */
+    }
+    .campo__field{
+        flex: 1;/* toma todo el espacion para que creesca */
+    }
+    .campo__field--textarea{
+        height: 20rem;/* fijamos la altura a textarea */
+    }
+    
+}
